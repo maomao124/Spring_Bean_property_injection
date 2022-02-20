@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:P="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="t1.Student">
+        <constructor-arg name="id" value="3"/>
+        <constructor-arg name="name" value="李四"/>
+        <constructor-arg name="grade" ref="grade"/>
+    </bean>
+
+    <bean id="grade" class="t1.Grade">
+        <constructor-arg index="0" value="4"/>
+        <constructor-arg index="1" value="四年级"/>
+    </bean>
+
+    <bean id="student2" class="t2.Student">
+        <property name="id" value="1"/>
+        <property name="name" value="张三"/>
+        <property name="grade" ref="grade2"/>
+    </bean>
+
+    <bean id="grade2" class="t2.Grade">
+        <property name="gradeId" value="5"/>
+        <property name="gradeName" value="五年级"/>
+    </bean>
+
+
+    <bean id="employee" class="t3.Employee" P:empName="小黄" P:dept-ref="dept" P:empNo="123"/>
+    <bean id="dept" class="t3.Dept" P:deptNo="1111" P:deptName="技术部"/>
+
+    <bean id="employee2" class="t4.Employee" c:empName="小红" c:dept-ref="dept2" c:empNo="456"/>
+    <bean id="dept2" class="t4.Dept" c:deptNo="4575" c:deptName="测试部"/>
+</beans>
